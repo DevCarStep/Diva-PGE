@@ -2,10 +2,11 @@
 using System;
 using UnityEngine;
 using UnityEditor;
+using DivaPGE.Chunks;
 
-namespace DivaPGE
+namespace DivaPGE.ChunkPlacer
 {
-    public class ChunkPlacer : MonoBehaviour
+    public class ChunkPlacer : UnityEngine.MonoBehaviour
     {
         public Chunk[] ChunkPrefabs;
         List<Chunk> spawnedChunks = new List<Chunk>();
@@ -21,6 +22,7 @@ namespace DivaPGE
         {
             Chunk newChunk = Instantiate(ChunkPrefabs[UnityEngine.Random.Range(0, ChunkPrefabs.Length)]);
             newChunk.transform.position = spawnedChunks[spawnedChunks.Count - 1].End.position - newChunk.Begin.localPosition;
+            spawnedChunks.Add(newChunk);
             spawnedChunks.Add(newChunk);
         }
     }
