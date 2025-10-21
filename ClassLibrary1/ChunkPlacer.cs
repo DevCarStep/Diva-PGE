@@ -1,15 +1,13 @@
-﻿using System.Numerics;
-using System;
+﻿using System;
 using UnityEngine;
 using UnityEditor;
-using DivaPGE.Chunks;
 
-namespace DivaPGE.ChunkPlacer
+namespace ClassLibrary1
 {
-    public class ChunkPlacer : UnityEngine.MonoBehaviour
+    public class ChunkPlacer : MonoBehaviour
     {
         public Chunk[] ChunkPrefabs;
-        List<Chunk> spawnedChunks = new List<Chunk>();
+        private List<Chunk> spawnedChunks = new List<Chunk>();
         private void Start()
         {
 
