@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.13.35913.81
+VisualStudioVersion = 17.13.35913.81 d17.13
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DivaPGE", "DivaPGE\DivaPGE.csproj", "{BB92E93A-5B4E-44DA-9FE9-544182CC7FA0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DivaPGE", "DivaPGE\DivaPGE.csproj", "{1C6FCC8F-CE30-4740-89C3-48D9DB4104D3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{BB92E93A-5B4E-44DA-9FE9-544182CC7FA0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BB92E93A-5B4E-44DA-9FE9-544182CC7FA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BB92E93A-5B4E-44DA-9FE9-544182CC7FA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BB92E93A-5B4E-44DA-9FE9-544182CC7FA0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C6FCC8F-CE30-4740-89C3-48D9DB4104D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C6FCC8F-CE30-4740-89C3-48D9DB4104D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C6FCC8F-CE30-4740-89C3-48D9DB4104D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C6FCC8F-CE30-4740-89C3-48D9DB4104D3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {55C098CA-BF09-412B-BD1C-5769A2E40226}
+		SolutionGuid = {18895066-F5BD-4DE0-9825-8730A41BA450}
 	EndGlobalSection
 EndGlobal
