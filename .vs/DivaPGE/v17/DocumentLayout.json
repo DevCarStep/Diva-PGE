@@ -18,21 +18,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ChunkPlacer.cs",
-              "DocumentMoniker": "C:\\Users\\\u041F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044C\\Desktop\\Diva-PGE\\DivaPGE\\ChunkPlacer.cs",
-              "RelativeDocumentMoniker": "DivaPGE\\ChunkPlacer.cs",
-              "ToolTip": "C:\\Users\\\u041F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044C\\Desktop\\Diva-PGE\\DivaPGE\\ChunkPlacer.cs",
-              "RelativeToolTip": "DivaPGE\\ChunkPlacer.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAMAAAAhAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-23T17:20:22.834Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Document",
               "DocumentIndex": 1,
@@ -41,9 +28,23 @@
               "RelativeDocumentMoniker": "DivaPGE\\Chunk.cs",
               "ToolTip": "C:\\Users\\\u041F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044C\\Desktop\\Diva-PGE\\DivaPGE\\Chunk.cs",
               "RelativeToolTip": "DivaPGE\\Chunk.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-23T17:20:22.42Z"
+              "WhenOpened": "2025-10-23T17:20:22.42Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ChunkPlacer.cs",
+              "DocumentMoniker": "C:\\Users\\\u041F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044C\\Desktop\\Diva-PGE\\DivaPGE\\ChunkPlacer.cs",
+              "RelativeDocumentMoniker": "DivaPGE\\ChunkPlacer.cs",
+              "ToolTip": "C:\\Users\\\u041F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044C\\Desktop\\Diva-PGE\\DivaPGE\\ChunkPlacer.cs",
+              "RelativeToolTip": "DivaPGE\\ChunkPlacer.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAAwBAAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-23T17:20:22.834Z",
+              "EditorCaption": ""
             }
           ]
         }
