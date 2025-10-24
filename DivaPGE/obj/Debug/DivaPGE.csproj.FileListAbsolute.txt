@@ -40,3 +40,10 @@ C:\Users\Пользователь\Desktop\Diva-PGE\DivaPGE\obj\Debug\DivaPGE.csp
 C:\Users\Пользователь\Desktop\Diva-PGE\DivaPGE\obj\Debug\DivaPGE.csproj.Up2Date
 C:\Users\Пользователь\Desktop\Diva-PGE\DivaPGE\obj\Debug\DivaPGE.dll
 C:\Users\Пользователь\Desktop\Diva-PGE\DivaPGE\obj\Debug\DivaPGE.pdb
+C:\Users\324\source\repos\Diva-PGE\DivaPGE\bin\Debug\DivaPGE.dll
+C:\Users\324\source\repos\Diva-PGE\DivaPGE\bin\Debug\DivaPGE.pdb
+C:\Users\324\source\repos\Diva-PGE\DivaPGE\obj\Debug\DivaPGE.csproj.AssemblyReference.cache
+C:\Users\324\source\repos\Diva-PGE\DivaPGE\obj\Debug\DivaPGE.csproj.CoreCompileInputs.cache
+C:\Users\324\source\repos\Diva-PGE\DivaPGE\obj\Debug\DivaPGE.csproj.Up2Date
+C:\Users\324\source\repos\Diva-PGE\DivaPGE\obj\Debug\DivaPGE.dll
+C:\Users\324\source\repos\Diva-PGE\DivaPGE\obj\Debug\DivaPGE.pdb

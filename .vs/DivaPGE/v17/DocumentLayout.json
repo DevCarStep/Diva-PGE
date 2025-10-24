@@ -1,13 +1,13 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\\u041F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044C\\Desktop\\Diva-PGE\\",
+  "WorkspaceRootPath": "C:\\Users\\324\\source\\repos\\Diva-PGE\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1C6FCC8F-CE30-4740-89C3-48D9DB4104D3}|DivaPGE\\DivaPGE.csproj|c:\\users\\\u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044C\\desktop\\diva-pge\\divapge\\chunkplacer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{1C6FCC8F-CE30-4740-89C3-48D9DB4104D3}|DivaPGE\\DivaPGE.csproj|c:\\users\\324\\source\\repos\\diva-pge\\divapge\\chunkplacer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1C6FCC8F-CE30-4740-89C3-48D9DB4104D3}|DivaPGE\\DivaPGE.csproj|solutionrelative:divapge\\chunkplacer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1C6FCC8F-CE30-4740-89C3-48D9DB4104D3}|DivaPGE\\DivaPGE.csproj|C:\\Users\\\u041F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044C\\Desktop\\Diva-PGE\\divapge\\chunk.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{1C6FCC8F-CE30-4740-89C3-48D9DB4104D3}|DivaPGE\\DivaPGE.csproj|C:\\Users\\324\\source\\repos\\Diva-PGE\\divapge\\chunk.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1C6FCC8F-CE30-4740-89C3-48D9DB4104D3}|DivaPGE\\DivaPGE.csproj|solutionrelative:divapge\\chunk.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -24,11 +24,11 @@
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "Chunk.cs",
-              "DocumentMoniker": "C:\\Users\\\u041F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044C\\Desktop\\Diva-PGE\\DivaPGE\\Chunk.cs",
+              "DocumentMoniker": "C:\\Users\\324\\source\\repos\\Diva-PGE\\DivaPGE\\Chunk.cs",
               "RelativeDocumentMoniker": "DivaPGE\\Chunk.cs",
-              "ToolTip": "C:\\Users\\\u041F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044C\\Desktop\\Diva-PGE\\DivaPGE\\Chunk.cs",
+              "ToolTip": "C:\\Users\\324\\source\\repos\\Diva-PGE\\DivaPGE\\Chunk.cs",
               "RelativeToolTip": "DivaPGE\\Chunk.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAiAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-23T17:20:22.42Z",
               "EditorCaption": ""
@@ -37,11 +37,11 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "ChunkPlacer.cs",
-              "DocumentMoniker": "C:\\Users\\\u041F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044C\\Desktop\\Diva-PGE\\DivaPGE\\ChunkPlacer.cs",
+              "DocumentMoniker": "C:\\Users\\324\\source\\repos\\Diva-PGE\\DivaPGE\\ChunkPlacer.cs",
               "RelativeDocumentMoniker": "DivaPGE\\ChunkPlacer.cs",
-              "ToolTip": "C:\\Users\\\u041F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044C\\Desktop\\Diva-PGE\\DivaPGE\\ChunkPlacer.cs",
+              "ToolTip": "C:\\Users\\324\\source\\repos\\Diva-PGE\\DivaPGE\\ChunkPlacer.cs",
               "RelativeToolTip": "DivaPGE\\ChunkPlacer.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAAwBAAAAAdAAAAAAAAAA==",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACgAAAAlAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-23T17:20:22.834Z",
               "EditorCaption": ""

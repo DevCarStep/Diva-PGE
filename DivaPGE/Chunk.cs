@@ -10,6 +10,7 @@ namespace DivaPGE
     {
         public Transform Begin;
         public Transform End;
+        public Transform[] Points;
         private void Start()
         {
 

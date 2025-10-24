@@ -7,13 +7,18 @@ namespace DivaPGE
 {
     public class ChunkPlacer : MonoBehaviour
     {
+        public Chunk FirstChunk;
         public Chunk[] ChunkPrefabs;
         private List<Chunk> spawnedChunks = new List<Chunk>();
-        public Chunk FirstChunk;
+        public Chunk[] LastChunks;
+        public bool RandomLastPosition;
+        public float height;
+        public float width;
+        public int TotalAmountOfElements;
         private void Start()
         {
             spawnedChunks.Add(FirstChunk);
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < TotalAmountOfElements; i++)
                 SpawnChunk();
         }
         private void Update()
@@ -22,8 +27,19 @@ namespace DivaPGE
         }
         private void SpawnChunk()
         {
-            Chunk newChunk = Instantiate(ChunkPrefabs[UnityEngine.Random.Range(0, ChunkPrefabs.Length)]);
-            newChunk.transform.position = spawnedChunks[spawnedChunks.Count - 1].End.position - newChunk.Begin.localPosition;
+            Chunk newChunk;
+
+            if (spawnedChunks.Count == 1)
+            {
+                newChunk = Instantiate(ChunkPrefabs[UnityEngine.Random.Range(0, ChunkPrefabs.Length)]);
+                newChunk.transform.position = spawnedChunks[0].Begin.position - newChunk.Points[UnityEngine.Random.Range(0, newChunk.Points.Length)].localPosition;
+                spawnedChunks.Add(newChunk);
+            }
+            newChunk = Instantiate(ChunkPrefabs[UnityEngine.Random.Range(0, ChunkPrefabs.Length)]);
+            int randomizedpoint = UnityEngine.Random.Range(0, newChunk.Points.Length);
+            newChunk.transform.position = spawnedChunks[spawnedChunks.Count - 1].Points[UnityEngine.Random.Range(0, spawnedChunks[spawnedChunks.Count-1].Points.Length)].position - newChunk.Points[randomizedpoint].localPosition;
+            //if ()      дописать!!!!
+            newChunk.transform.RotateAround(newChunk.Points[randomizedpoint].transform.position, Vector3.up, 180);
             spawnedChunks.Add(newChunk);
         }
     }
