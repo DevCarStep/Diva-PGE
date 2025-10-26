@@ -36,10 +36,11 @@ namespace DivaPGE
                 spawnedChunks.Add(newChunk);
             }
             newChunk = Instantiate(ChunkPrefabs[UnityEngine.Random.Range(0, ChunkPrefabs.Length)]);
-            int randomizedpoint = UnityEngine.Random.Range(0, newChunk.Points.Length);
-            newChunk.transform.position = spawnedChunks[spawnedChunks.Count - 1].Points[UnityEngine.Random.Range(0, spawnedChunks[spawnedChunks.Count-1].Points.Length)].position - newChunk.Points[randomizedpoint].localPosition;
-            //if ()      дописать!!!!
-            newChunk.transform.RotateAround(newChunk.Points[randomizedpoint].transform.position, Vector3.up, 180);
+            int previousRandomizedPoint = UnityEngine.Random.Range(0, spawnedChunks[spawnedChunks.Count - 1].Points.Length);
+            int newRandomizedPoint = UnityEngine.Random.Range(0, newChunk.Points.Length);
+            newChunk.transform.position = spawnedChunks[spawnedChunks.Count - 1].Points[UnityEngine.Random.Range(0, spawnedChunks[spawnedChunks.Count-1].Points.Length)].position - newChunk.Points[newRandomizedPoint].localPosition;
+            while (newChunk.Points[newRandomizedPoint].transform.eulerAngles - spawnedChunks[spawnedChunks.Count - 1].Points[previousRandomizedPoint].transform.eulerAngles != new Vector3(2,0,0))
+                newChunk.transform.RotateAround(newChunk.transform.position, newChunk.Points[newRandomizedPoint].position, 90f);
             spawnedChunks.Add(newChunk);
         }
     }
