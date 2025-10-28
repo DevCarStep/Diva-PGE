@@ -7,6 +7,10 @@
       "RelativeMoniker": "D:0:0:{1C6FCC8F-CE30-4740-89C3-48D9DB4104D3}|DivaPGE\\DivaPGE.csproj|solutionrelative:divapge\\chunkplacer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{1C6FCC8F-CE30-4740-89C3-48D9DB4104D3}|DivaPGE\\DivaPGE.csproj|c:\\users\\\u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044C\\desktop\\divapge\\divapge\\attachpoint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1C6FCC8F-CE30-4740-89C3-48D9DB4104D3}|DivaPGE\\DivaPGE.csproj|solutionrelative:divapge\\attachpoint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{1C6FCC8F-CE30-4740-89C3-48D9DB4104D3}|DivaPGE\\DivaPGE.csproj|C:\\Users\\\u041F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044C\\Desktop\\DivaPGE\\divapge\\chunk.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1C6FCC8F-CE30-4740-89C3-48D9DB4104D3}|DivaPGE\\DivaPGE.csproj|solutionrelative:divapge\\chunk.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -18,17 +22,30 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "AttachPoint.cs",
+              "DocumentMoniker": "C:\\Users\\\u041F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044C\\Desktop\\DivaPGE\\DivaPGE\\AttachPoint.cs",
+              "RelativeDocumentMoniker": "DivaPGE\\AttachPoint.cs",
+              "ToolTip": "C:\\Users\\\u041F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044C\\Desktop\\DivaPGE\\DivaPGE\\AttachPoint.cs",
+              "RelativeToolTip": "DivaPGE\\AttachPoint.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-28T16:27:37.511Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "Chunk.cs",
               "DocumentMoniker": "C:\\Users\\\u041F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044C\\Desktop\\DivaPGE\\DivaPGE\\Chunk.cs",
               "RelativeDocumentMoniker": "DivaPGE\\Chunk.cs",
               "ToolTip": "C:\\Users\\\u041F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044C\\Desktop\\DivaPGE\\DivaPGE\\Chunk.cs",
               "RelativeToolTip": "DivaPGE\\Chunk.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAiAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-23T17:20:22.42Z",
               "EditorCaption": ""
@@ -41,7 +58,7 @@
               "RelativeDocumentMoniker": "DivaPGE\\ChunkPlacer.cs",
               "ToolTip": "C:\\Users\\\u041F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044C\\Desktop\\DivaPGE\\DivaPGE\\ChunkPlacer.cs",
               "RelativeToolTip": "DivaPGE\\ChunkPlacer.cs",
-              "ViewState": "AgIAACAAAAAAAAAAAAD4vy0AAAChAAAAAAAAAA==",
+              "ViewState": "AgIAADUAAAAAAAAAAAAAADoAAABqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-23T17:20:22.834Z",
               "EditorCaption": ""

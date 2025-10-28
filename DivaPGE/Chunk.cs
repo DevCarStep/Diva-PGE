@@ -8,9 +8,9 @@ namespace DivaPGE
 {
     public class Chunk : MonoBehaviour
     {
-        public Transform Begin;
-        public Transform End;
-        public Transform[] Points;
+        public AttachPoint Begin;
+        public AttachPoint End;
+        public AttachPoint[] Points;
         private void Start()
         {
 

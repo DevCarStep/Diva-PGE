@@ -49,6 +49,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AttachPoint.cs" />
     <Compile Include="Chunk.cs" />
     <Compile Include="ChunkPlacer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
