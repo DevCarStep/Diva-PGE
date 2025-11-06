@@ -13,7 +13,7 @@ namespace DivaPGE
         public Transform point;
         public bool attached = false;
 
-        ConnectionType connectionType;
+        public ConnectionType connectionType;
 
         public AttachPoint(ConnectionType connection)
         {
