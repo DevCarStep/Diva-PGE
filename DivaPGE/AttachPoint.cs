@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
+using ProcedureMapGenerator;
 
 namespace DivaPGE
 {
@@ -11,5 +12,12 @@ namespace DivaPGE
     {
         public Transform point;
         public bool attached = false;
+
+        ConnectionType connectionType;
+
+        public AttachPoint(ConnectionType connection)
+        {
+            this.connectionType = connection;
+        }
     }
 }
