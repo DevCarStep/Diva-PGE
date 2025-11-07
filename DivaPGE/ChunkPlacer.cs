@@ -4,6 +4,7 @@ using UnityEditor;
 using System.Collections.Generic;
 using ProcedureMapGenerator;
 using System.Linq;
+using System.Data;
 
 namespace DivaPGE
 {
@@ -14,8 +15,8 @@ namespace DivaPGE
         private List<Chunk> spawnedChunks = new List<Chunk>();
         public Chunk[] LastChunks;
         public bool RandomLastPosition;
-        public float height;
-        public float width;
+        public int height;
+        public int width;
         public int TotalAmountOfElements;
         private void Start()
         {
@@ -24,6 +25,12 @@ namespace DivaPGE
             //spawnedChunks.Add(FirstChunk);
             //for (int i = 0; i < TotalAmountOfElements; i++)
             //    SpawnChunk();
+
+            ProcedureGenerator procedureGenerator = new ProcedureGenerator(width, height);
+
+            procedureGenerator.GenerateMapWithStyle(ProcedureGenerator.MapStyle.TunnelLike, TotalAmountOfElements);
+
+            ProcedureMapGenerator.Chunk[,] virtualMap = procedureGenerator.GetMap();
         }
         private void Update()
         {
@@ -36,8 +43,42 @@ namespace DivaPGE
         private Chunk ChooseRightOneRandomChunk(ProcedureMapGenerator.Chunk chunk)
         {
             List<Chunk> rightChunks = new List<Chunk>();
-            int taggetPoints = chunk.DirectionsCount();
-            ConnectionType[] targetDirections = new ConnectionType[taggetPoints];
+            int targetPoints = chunk.DirectionsCount();
+            ConnectionType[] targetDirections;
+
+            int foundedSame;
+            ProcedureMapGenerator.Chunk rotationChunk = chunk;
+
+            foreach (Chunk chunkPrefab in ChunkPrefabs)
+            {
+                foreach (AttachPoint attachPoint in chunkPrefab.Points)
+                {
+                    for (int i = 0; i < 4; i++)
+                    {
+                        targetDirections = FindTargetDirections(rotationChunk, targetPoints);
+                        foundedSame = 0;
+
+                        if (targetDirections.Any(dir => dir == attachPoint.connectionType))
+                            foundedSame++;
+                        if (foundedSame == targetPoints)
+                        {
+                            rightChunks.Add(chunkPrefab);
+                            break;
+                        }
+                        else
+                        {
+                            rotationChunk.RotateChunk();
+                        }
+                    }
+                }
+            }
+
+            return rightChunks[UnityEngine.Random.Range(0, rightChunks.Count)];
+        }
+        private ConnectionType[] FindTargetDirections(ProcedureMapGenerator.Chunk chunk, int targetPoints)
+        {
+            ConnectionType[] targetDirections = new ConnectionType[targetPoints];
+
             int n = 0;
 
             foreach (var key in chunk.directions.Keys.ToList())
@@ -46,24 +87,7 @@ namespace DivaPGE
                     targetDirections[n++] = key;
             }
 
-            int foundedSame = 0;
-
-            foreach (Chunk chunkPrefab in ChunkPrefabs)
-            {
-                foreach (AttachPoint attachPoint in chunkPrefab.Points)
-                {
-                    for (int i = 0; i < 4; i++)
-                    {
-                        if (targetDirections.Any(dir => dir == attachPoint.connectionType))
-                            foundedSame++;
-                        if (foundedSame == taggetPoints) break;
-                        else
-                        {
-                            //
-                        }
-                    }
-                }
-            }
+            return targetDirections;
         }
         //private void SpawnChunk()
         //{

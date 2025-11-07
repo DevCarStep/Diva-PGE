@@ -79,3 +79,5 @@ C:\Users\Пользователь\Desktop\Diva-PGE\DivaPGE\bin\Debug\Unity.Seria
 C:\Users\Пользователь\Desktop\Diva-PGE\DivaPGE\bin\Debug\Unity.Legacy.NRefactory.dll
 C:\Users\Пользователь\Desktop\Diva-PGE\DivaPGE\bin\Debug\Unity.CecilTools.dll
 C:\Users\Пользователь\Desktop\Diva-PGE\DivaPGE\bin\Debug\ArrayPG.pdb
+C:\Users\324\source\repos\Diva-PGE\DivaPGE\bin\Debug\ArrayPG.dll
+C:\Users\324\source\repos\Diva-PGE\DivaPGE\bin\Debug\ArrayPG.pdb
