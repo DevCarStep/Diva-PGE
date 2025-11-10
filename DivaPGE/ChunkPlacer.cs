@@ -12,12 +12,14 @@ namespace DivaPGE
     {
         public Chunk FirstChunk;
         public Chunk[] ChunkPrefabs;
+        private Transform origin;
         private List<Chunk> spawnedChunks = new List<Chunk>();
         public Chunk[] LastChunks;
         public bool RandomLastPosition;
         public int height;
         public int width;
         public int TotalAmountOfElements;
+        public ProcedureMapGenerator.ProcedureGenerator.MapStyle mapStyle;
         private void Start()
         {
             //Chunk BeginingChunk = Instantiate(FirstChunk);
@@ -28,9 +30,29 @@ namespace DivaPGE
 
             ProcedureGenerator procedureGenerator = new ProcedureGenerator(width, height);
 
-            procedureGenerator.GenerateMapWithStyle(ProcedureGenerator.MapStyle.TunnelLike, TotalAmountOfElements);
+            procedureGenerator.GenerateMapWithStyle(mapStyle, TotalAmountOfElements);
 
             ProcedureMapGenerator.Chunk[,] virtualMap = procedureGenerator.GetMap();
+
+            int rotateTimes;
+
+            for (int x = 0; x < virtualMap.GetLength(0);  x++)
+            {
+                for (int z = 0;  z < virtualMap.GetLength(1); z++)
+                {
+                    Chunk printingChunk;
+                    rotateTimes = 0;
+                    Vector3 offset;
+                    printingChunk = ChooseRightOneRandomChunk(virtualMap[x, z], out rotateTimes);
+                    offset = new Vector3(x, origin.position.y, z);
+
+                    printingChunk = Instantiate(printingChunk);
+                    printingChunk.transform.position = offset;
+                    printingChunk.transform.Rotate(0, 90*rotateTimes, 0);
+                }
+            }
+
+
         }
         private void Update()
         {
@@ -40,7 +62,7 @@ namespace DivaPGE
         {
 
         }
-        private Chunk ChooseRightOneRandomChunk(ProcedureMapGenerator.Chunk chunk)
+        private Chunk ChooseRightOneRandomChunk(ProcedureMapGenerator.Chunk chunk, out int prefRotationTimes)
         {
             List<Chunk> rightChunks = new List<Chunk>();
             int targetPoints = chunk.DirectionsCount();
@@ -48,6 +70,7 @@ namespace DivaPGE
 
             int foundedSame;
             ProcedureMapGenerator.Chunk rotationChunk = chunk;
+            prefRotationTimes = 0;
 
             foreach (Chunk chunkPrefab in ChunkPrefabs)
             {
@@ -68,6 +91,7 @@ namespace DivaPGE
                         else
                         {
                             rotationChunk.RotateChunk();
+                            prefRotationTimes++;
                         }
                     }
                 }

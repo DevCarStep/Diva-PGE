@@ -81,3 +81,5 @@ C:\Users\Пользователь\Desktop\Diva-PGE\DivaPGE\bin\Debug\Unity.Cecil
 C:\Users\Пользователь\Desktop\Diva-PGE\DivaPGE\bin\Debug\ArrayPG.pdb
 C:\Users\324\source\repos\Diva-PGE\DivaPGE\bin\Debug\ArrayPG.dll
 C:\Users\324\source\repos\Diva-PGE\DivaPGE\bin\Debug\ArrayPG.pdb
+C:\Users\Пользователь\Desktop\Builded dlls\DivaPGE.dll
+C:\Users\Пользователь\Desktop\Builded dlls\DivaPGE.pdb
