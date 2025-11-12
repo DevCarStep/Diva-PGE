@@ -22,12 +22,6 @@ namespace DivaPGE
         public ProcedureMapGenerator.ProcedureGenerator.MapStyle mapStyle;
         private void Start()
         {
-            //Chunk BeginingChunk = Instantiate(FirstChunk);
-            //BeginingChunk.transform.position = gameObject.transform.position;
-            //spawnedChunks.Add(FirstChunk);
-            //for (int i = 0; i < TotalAmountOfElements; i++)
-            //    SpawnChunk();
-
             ProcedureGenerator procedureGenerator = new ProcedureGenerator(width, height);
 
             procedureGenerator.GenerateMapWithStyle(mapStyle, TotalAmountOfElements);
@@ -36,19 +30,24 @@ namespace DivaPGE
 
             int rotateTimes;
 
-            for (int x = 0; x < virtualMap.GetLength(0);  x++)
+            for (int x = 0; x < virtualMap.GetLength(0); x++)
             {
-                for (int z = 0;  z < virtualMap.GetLength(1); z++)
+                for (int z = 0; z < virtualMap.GetLength(1); z++)
                 {
                     Chunk printingChunk;
                     rotateTimes = 0;
                     Vector3 offset;
+
+                    if (virtualMap[x, z] == null) { continue; }
+
                     printingChunk = ChooseRightOneRandomChunk(virtualMap[x, z], out rotateTimes);
                     offset = new Vector3(x, origin.position.y, z);
 
                     printingChunk = Instantiate(printingChunk);
                     printingChunk.transform.position = offset;
-                    printingChunk.transform.Rotate(0, 90*rotateTimes, 0);
+                    printingChunk.transform.Rotate(0, 90 * rotateTimes, 0);
+
+                    Debug.Log(printingChunk.GetType());
                 }
             }
 
@@ -56,7 +55,7 @@ namespace DivaPGE
         }
         private void Update()
         {
-            
+
         }
         private void BuildToTheMap(ProcedureMapGenerator.Chunk[,] map)
         {
@@ -64,27 +63,31 @@ namespace DivaPGE
         }
         private Chunk ChooseRightOneRandomChunk(ProcedureMapGenerator.Chunk chunk, out int prefRotationTimes)
         {
+            if (chunk == null) { prefRotationTimes = 0; Debug.Log("Null reference"); return new Chunk(); }
+
             List<Chunk> rightChunks = new List<Chunk>();
             int targetPoints = chunk.DirectionsCount();
-            ConnectionType[] targetDirections;
+            List<ConnectionType> targetDirections;
 
             int foundedSame;
-            ProcedureMapGenerator.Chunk rotationChunk = chunk;
+            ProcedureMapGenerator.Chunk rotationChunk;
             prefRotationTimes = 0;
 
             foreach (Chunk chunkPrefab in ChunkPrefabs)
             {
+                rotationChunk = chunk;
                 foreach (AttachPoint attachPoint in chunkPrefab.Points)
                 {
                     for (int i = 0; i < 4; i++)
                     {
-                        targetDirections = FindTargetDirections(rotationChunk, targetPoints);
+                        targetDirections = FindTargetDirections(rotationChunk);
                         foundedSame = 0;
 
                         if (targetDirections.Any(dir => dir == attachPoint.connectionType))
                             foundedSame++;
                         if (foundedSame == targetPoints)
                         {
+                            Debug.Log($"Выбрано с {prefRotationTimes} раза");
                             rightChunks.Add(chunkPrefab);
                             break;
                         }
@@ -97,65 +100,40 @@ namespace DivaPGE
                 }
             }
 
-            return rightChunks[UnityEngine.Random.Range(0, rightChunks.Count)];
-        }
-        private ConnectionType[] FindTargetDirections(ProcedureMapGenerator.Chunk chunk, int targetPoints)
-        {
-            ConnectionType[] targetDirections = new ConnectionType[targetPoints];
+            Chunk result = rightChunks[UnityEngine.Random.Range(0, rightChunks.Count - 1)];
 
-            int n = 0;
+            if (result != null)
+                if (rightChunks.Count > 1)
+                    return result;
+                else
+                { Debug.Log($"Лист с выбранными чанками длиной в {rightChunks.Count} элементов."); return rightChunks[0]; }
+            else
+            {
+                Debug.Log($"Ничего не выбрано ({result.GetType()})");
+                return new Chunk();
+            }
+        }
+        private List<ConnectionType> FindTargetDirections(ProcedureMapGenerator.Chunk chunk)
+        {
+            List<ConnectionType> targetDirections = new List<ConnectionType>();
 
             foreach (var key in chunk.directions.Keys.ToList())
             {
                 if (chunk.directions[key].Item1)
-                    targetDirections[n++] = key;
+                    targetDirections.Add(key);
             }
 
+            string debugOutput = "";
+
+            foreach (var dir in targetDirections)
+            {
+                debugOutput += dir;
+                debugOutput += " ";
+            }
+            debugOutput += "(направлений ";
+            debugOutput += Convert.ToString(targetDirections.Count);
+            debugOutput += ").";
             return targetDirections;
         }
-        //private void SpawnChunk()
-        //{
-        //    Chunk newChunk;
-        //    AttachPoint previousRandomizedPoint;
-        //    AttachPoint newRandomizedPoint;
-
-        //    if (spawnedChunks.Count == 1)
-        //    {
-        //        newChunk = Instantiate(ChunkPrefabs[UnityEngine.Random.Range(0, ChunkPrefabs.Length)]);
-        //        newRandomizedPoint = newChunk.Points[UnityEngine.Random.Range(0, newChunk.Points.Length)];
-        //        newChunk.transform.position = spawnedChunks[0].Begin.transform.position - newChunk.Points[UnityEngine.Random.Range(0, newChunk.Points.Length)].transform.localPosition;
-        //        if (Vector3.Angle(newRandomizedPoint.transform.position, spawnedChunks[0].Begin.transform.position) != 180f)
-        //        {
-        //            float differenceAngle = Vector3.Angle(newRandomizedPoint.transform.position, spawnedChunks[0].Begin.transform.position);
-        //            newChunk.transform.RotateAround(newRandomizedPoint.transform.position, Vector3.up, differenceAngle + 180f);
-        //            differenceAngle = Vector3.Angle(newRandomizedPoint.transform.position, spawnedChunks[0].Begin.transform.position);
-        //            if (differenceAngle + 180f != 180f)
-        //                Debug.Log($"Поворот не удался, угол остался {Vector3.Angle(newRandomizedPoint.transform.position, spawnedChunks[0].Begin.transform.position)} градусов");
-        //        }
-        //        spawnedChunks[0].Begin.attached = true;
-        //        newRandomizedPoint.attached = true;
-        //        spawnedChunks.Add(newChunk);
-        //    }
-        //    else
-        //    {
-        //        newChunk = Instantiate(ChunkPrefabs[UnityEngine.Random.Range(0, ChunkPrefabs.Length)]);
-        //        previousRandomizedPoint = spawnedChunks[spawnedChunks.Count - 1].Points[UnityEngine.Random.Range(0, spawnedChunks[spawnedChunks.Count - 1].Points.Length)];
-        //        while (previousRandomizedPoint.attached != false)
-        //            previousRandomizedPoint = spawnedChunks[spawnedChunks.Count - 1].Points[UnityEngine.Random.Range(0, spawnedChunks[spawnedChunks.Count - 1].Points.Length)];
-        //        newRandomizedPoint = newChunk.Points[UnityEngine.Random.Range(0, newChunk.Points.Length)];
-        //        newChunk.transform.position = previousRandomizedPoint.transform.position - newRandomizedPoint.transform.localPosition;
-        //        if (Vector3.Angle(newRandomizedPoint.transform.position, previousRandomizedPoint.transform.position) != 180f)
-        //        {
-        //            float differenceAngle = Vector3.Angle(newRandomizedPoint.transform.position, previousRandomizedPoint.transform.position);
-        //            newChunk.transform.RotateAround(newChunk.transform.position, newRandomizedPoint.transform.up, differenceAngle + 180f);
-        //            differenceAngle = Vector3.Angle(newRandomizedPoint.transform.position, spawnedChunks[0].Begin.transform.position);
-        //            if (differenceAngle + 180f != 180f)
-        //                Debug.Log($"Поворот не удался, угол остался {Vector3.Angle(newRandomizedPoint.transform.position, previousRandomizedPoint.transform.position)} градусов");
-        //        }
-        //        previousRandomizedPoint.attached = true;
-        //        newRandomizedPoint.attached = true;
-        //        spawnedChunks.Add(newChunk);
-        //    }
-        //}
     }
 }
