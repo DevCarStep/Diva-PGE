@@ -65,6 +65,9 @@ namespace DivaPGE
         {
             if (chunk == null) { prefRotationTimes = 0; Debug.Log("Null reference"); return new Chunk(); }
 
+            chunk.directions[ConnectionType.Up] = new Tuple<bool, bool?>(false, false);
+            chunk.directions[ConnectionType.Down] = new Tuple<bool, bool?>(false, false);
+
             List<Chunk> rightChunks = new List<Chunk>();
             int targetPoints = chunk.DirectionsCount();
             List<ConnectionType> targetDirections;
@@ -81,16 +84,29 @@ namespace DivaPGE
                     for (int i = 0; i < 4; i++)
                     {
                         targetDirections = FindTargetDirections(rotationChunk);
+                        List<ConnectionType> rotatedDirections = new List<ConnectionType>();
                         foundedSame = 0;
 
-                        if (targetDirections.Any(dir => dir == attachPoint.connectionType))
-                            foundedSame++;
-                        if (foundedSame == targetPoints)
+                        foreach (var key in rotationChunk.directions.Keys)
+                        {
+                            if (rotationChunk.directions[key].Item1)
+                                rotatedDirections.Add(key);
+                        }
+
+                        //if (targetDirections.Any(dir => dir == attachPoint.connectionType))
+                        //    foundedSame++;
+                        if (targetDirections == rotatedDirections)
                         {
                             Debug.Log($"Выбрано с {prefRotationTimes} раза");
                             rightChunks.Add(chunkPrefab);
                             break;
                         }
+                        //if (foundedSame == targetPoints)
+                        //{
+                        //    Debug.Log($"Выбрано с {prefRotationTimes} раза");
+                        //    rightChunks.Add(chunkPrefab);
+                        //    break;
+                        //}
                         else
                         {
                             rotationChunk.RotateChunk();
@@ -99,8 +115,9 @@ namespace DivaPGE
                     }
                 }
             }
+            int rand = UnityEngine.Random.Range(0, rightChunks.Count - 1);
 
-            Chunk result = rightChunks[UnityEngine.Random.Range(0, rightChunks.Count - 1)];
+            Chunk result = rightChunks[rand];
 
             if (result != null)
                 if (rightChunks.Count > 1)
@@ -110,7 +127,7 @@ namespace DivaPGE
             else
             {
                 Debug.Log($"Ничего не выбрано ({result.GetType()})");
-                return new Chunk();
+                return ChunkPrefabs[UnityEngine.Random.Range(0, ChunkPrefabs.Length - 1)];
             }
         }
         private List<ConnectionType> FindTargetDirections(ProcedureMapGenerator.Chunk chunk)
@@ -119,6 +136,8 @@ namespace DivaPGE
 
             foreach (var key in chunk.directions.Keys.ToList())
             {
+                if (key == ConnectionType.Down || key == ConnectionType.Up)
+                    continue;
                 if (chunk.directions[key].Item1)
                     targetDirections.Add(key);
             }
