@@ -28,6 +28,8 @@ namespace DivaPGE
 
             ProcedureMapGenerator.Chunk[,] virtualMap = procedureGenerator.GetMap();
 
+            origin = this.gameObject.transform;
+
             int rotateTimes;
 
             for (int x = 0; x < virtualMap.GetLength(0); x++)
@@ -41,6 +43,7 @@ namespace DivaPGE
                     if (virtualMap[x, z] == null) { continue; }
 
                     printingChunk = ChooseRightOneRandomChunk(virtualMap[x, z], out rotateTimes);
+
                     offset = new Vector3(x, origin.position.y, z);
 
                     printingChunk = Instantiate(printingChunk);
@@ -78,40 +81,32 @@ namespace DivaPGE
 
             foreach (Chunk chunkPrefab in ChunkPrefabs)
             {
+                List<ConnectionType> basicPrefabDirections = FindTargetDirections(chunkPrefab);
                 rotationChunk = chunk;
-                foreach (AttachPoint attachPoint in chunkPrefab.Points)
+                for (int i = 0; i < 4; i++)
                 {
-                    for (int i = 0; i < 4; i++)
+                    prefRotationTimes = 0;
+                    targetDirections = FindTargetDirections(rotationChunk);
+                    //foundedSame = 0;
+
+                    //if (targetDirections.Any(dir => dir == attachPoint.connectionType))
+                    //    foundedSame++;
+                    if (CustomListEquals(targetDirections, basicPrefabDirections))
                     {
-                        targetDirections = FindTargetDirections(rotationChunk);
-                        List<ConnectionType> rotatedDirections = new List<ConnectionType>();
-                        foundedSame = 0;
-
-                        foreach (var key in rotationChunk.directions.Keys)
-                        {
-                            if (rotationChunk.directions[key].Item1)
-                                rotatedDirections.Add(key);
-                        }
-
-                        //if (targetDirections.Any(dir => dir == attachPoint.connectionType))
-                        //    foundedSame++;
-                        if (targetDirections == rotatedDirections)
-                        {
-                            Debug.Log($"Выбрано с {prefRotationTimes} раза");
-                            rightChunks.Add(chunkPrefab);
-                            break;
-                        }
-                        //if (foundedSame == targetPoints)
-                        //{
-                        //    Debug.Log($"Выбрано с {prefRotationTimes} раза");
-                        //    rightChunks.Add(chunkPrefab);
-                        //    break;
-                        //}
-                        else
-                        {
-                            rotationChunk.RotateChunk();
-                            prefRotationTimes++;
-                        }
+                        Debug.Log($"Выбрано с {prefRotationTimes} раза");
+                        rightChunks.Add(chunkPrefab);
+                        break;
+                    }
+                    //if (foundedSame == targetPoints)
+                    //{
+                    //    Debug.Log($"Выбрано с {prefRotationTimes} раза");
+                    //    rightChunks.Add(chunkPrefab);
+                    //    break;
+                    //}
+                    else
+                    {
+                        rotationChunk.RotateChunk();
+                        prefRotationTimes++;
                     }
                 }
             }
@@ -153,6 +148,31 @@ namespace DivaPGE
             debugOutput += Convert.ToString(targetDirections.Count);
             debugOutput += ").";
             return targetDirections;
+        }
+        private List<ConnectionType> FindTargetDirections(DivaPGE.Chunk chunk)
+        {
+            List<ConnectionType> targetDirections = new List<ConnectionType>();
+
+            foreach (var attachPoint in chunk.Points)
+            {
+                if (attachPoint.connectionType != ConnectionType.Up || attachPoint.connectionType != ConnectionType.Down)
+                    targetDirections.Add(attachPoint.connectionType);
+            }
+
+            return targetDirections;
+        }
+        bool CustomListEquals(List<ConnectionType> list1, List<ConnectionType> list2)
+        {
+            if (list1.Count != list2.Count)
+                return false;
+
+            for (int i = 0; i < list1.Count; i++)
+            {
+                if (list1[i] != list2[i])
+                    return false;
+            }
+
+            return true;
         }
     }
 }
