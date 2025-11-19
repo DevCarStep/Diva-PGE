@@ -91,7 +91,7 @@ namespace DivaPGE
 
                     //if (targetDirections.Any(dir => dir == attachPoint.connectionType))
                     //    foundedSame++;
-                    if (CustomListEquals(targetDirections, basicPrefabDirections))
+                    if (SameCompound(targetDirections, basicPrefabDirections))
                     {
                         Debug.Log($"Выбрано с {prefRotationTimes} раза");
                         rightChunks.Add(chunkPrefab);
@@ -161,18 +161,42 @@ namespace DivaPGE
 
             return targetDirections;
         }
-        bool CustomListEquals(List<ConnectionType> list1, List<ConnectionType> list2)
+        bool SameCompound(List<ConnectionType> list1, List<ConnectionType> list2)
         {
             if (list1.Count != list2.Count)
                 return false;
 
-            for (int i = 0; i < list1.Count; i++)
+            int firstChecker = 0;
+            int secondChecker = 0;
+
+            foreach (var el in list1)
             {
-                if (list1[i] != list2[i])
-                    return false;
+                for (int i = 0; i < list1.Count; i++)
+                {
+                    if (el == list2[i])
+                    {
+                        firstChecker++;
+                        break;
+                    }
+                }
             }
 
-            return true;
+            foreach (var el in list2)
+            {
+                for (int i = 0; i < list2.Count; i++)
+                {
+                    if (el == list1[i])
+                    {
+                        secondChecker++;
+                        break;
+                    }
+                }
+            }
+
+            if (firstChecker == secondChecker)
+                return true;
+
+            return false;
         }
     }
 }
