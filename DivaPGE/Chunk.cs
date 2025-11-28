@@ -8,8 +8,6 @@ namespace DivaPGE
 {
     public class Chunk : MonoBehaviour
     {
-        public AttachPoint Begin;
-        public AttachPoint End;
         public AttachPoint[] Points;
         private void Start()
         {

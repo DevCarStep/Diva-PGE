@@ -10,12 +10,8 @@ namespace DivaPGE
 {
     public class ChunkPlacer : MonoBehaviour
     {
-        public Chunk FirstChunk;
         public Chunk[] ChunkPrefabs;
         private Transform origin;
-        private List<Chunk> spawnedChunks = new List<Chunk>();
-        public Chunk[] LastChunks;
-        public bool RandomLastPosition;
         public int height;
         public int width;
         public int TotalAmountOfElements;
@@ -53,8 +49,6 @@ namespace DivaPGE
                     Debug.Log(printingChunk.GetType());
                 }
             }
-
-
         }
         private void Update()
         {
@@ -75,7 +69,6 @@ namespace DivaPGE
             int targetPoints = chunk.DirectionsCount();
             List<ConnectionType> targetDirections;
 
-            int foundedSame;
             ProcedureMapGenerator.Chunk rotationChunk;
             prefRotationTimes = 0;
 
@@ -87,22 +80,14 @@ namespace DivaPGE
                 {
                     prefRotationTimes = 0;
                     targetDirections = FindTargetDirections(rotationChunk);
-                    //foundedSame = 0;
 
-                    //if (targetDirections.Any(dir => dir == attachPoint.connectionType))
-                    //    foundedSame++;
                     if (SameCompound(targetDirections, basicPrefabDirections))
                     {
                         Debug.Log($"Выбрано с {prefRotationTimes} раза");
                         rightChunks.Add(chunkPrefab);
                         break;
                     }
-                    //if (foundedSame == targetPoints)
-                    //{
-                    //    Debug.Log($"Выбрано с {prefRotationTimes} раза");
-                    //    rightChunks.Add(chunkPrefab);
-                    //    break;
-                    //}
+
                     else
                     {
                         rotationChunk.RotateChunk();
